@@ -1,0 +1,25 @@
+config:
+  state:
+    backend: local
+    options:
+      stateFile: devstream.state
+tools:
+  - name: repo-scaffolding
+    instanceID: myapp
+    options:
+      destinationRepo:
+        owner: [[env GITHUB_USER]]
+        name: [[env APP]]
+        branch: main
+        scmType: github
+        token: [[env GITHUB_TOKEN]]
+      sourceRepo:
+        org: vfarcic
+        name: template-go-backend-db-google
+        scmType: github
+      vars:
+        ImageRepo: [[env IMAGE_REPO]]
+        Host: [[env HOST]]
+        DbVersion: [[env DB_VERSION]]
+        DbSize: [[env DB_SIZE]]
+        GitHubUser: [[env GITHUB_USER]]

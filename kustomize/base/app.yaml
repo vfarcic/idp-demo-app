@@ -1,0 +1,22 @@
+---
+apiVersion: devopstoolkitseries.com/v1alpha1
+kind: AppClaim
+metadata:
+  annotations:
+    gitHubOrg: vfarcic
+    gitHubRepo: idp-demo-app
+  name: idp-demo-app
+spec:
+  id: idp-demo-app
+  compositionSelector:
+    matchLabels:
+      type: backend-db-google
+      location: local
+  parameters:
+    namespace: development
+    image: docker.io/vfarcic/idp-demo-app:latest
+    port: 8080
+    host: acme.com
+    db:
+      version: 13
+      size: medium
